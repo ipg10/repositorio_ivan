@@ -12,22 +12,22 @@ public class Aplicacion {
     public void agregar_contacto(){
         //??Usuario --> Tiene permisos para ejecutar eso??
         //asistente.
-        System.err.println("agregar contacto");
+        System.err.println("Usted puede agregar contacto");
     }
     public void modificar_contacto(){
-        System.err.println("modificar contacto");
+        System.err.println("Usted puede modificar contacto");
     }
     public void eliminar_contacto(){
-        System.err.println("eliminar contacto");
+        System.err.println("Usted puede eliminar contacto");
     }
     public void listar_contacto(){
-        System.err.println("listar contacto");
+        System.err.println("Usted puede listar contacto");
     }
     public void agregar_usuario(){
         // ¿usuario? --> variable global 
         // if usuario puede hacer operacion (agregar usuario) --> ok
         // else --> error, no autorizado 
-        System.err.println("agregar usuario");
+        System.err.println("Usted puede agregar usuario");
     }
     
     

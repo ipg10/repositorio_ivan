@@ -53,26 +53,42 @@ public class Principal
         return rol;
     }
 
-    public static void permisosOrtogados(Usuarios usuarios) {
+    public static void permisosOrtogados(Usuarios usuarios, int numero) { 
+        boolean status = false;
         for (Operaciones rol : usuarios.getRol().getListaOperaciones()) {
-            if (rol.getIdOperacion() == 1 && rol.isPermitido() == true) {
+            if (numero == 1 && rol.getIdOperacion() == numero && rol.isPermitido() == true) {
                 aplicacion.agregar_contacto();
-            } else if (rol.getIdOperacion() == 2 && rol.isPermitido() == true) {
+                status = true;
+                break;
+            } else if (numero == 2 && rol.getIdOperacion() == numero && rol.isPermitido() == true) {
                 aplicacion.modificar_contacto();
-            } else if (rol.getIdOperacion() == 3 && rol.isPermitido() == true) {
+                status = true;
+                break;
+            } else if (numero == 3 && rol.getIdOperacion() == numero && rol.isPermitido() == true) {
                 aplicacion.eliminar_contacto();
-            } else if (rol.getIdOperacion() == 4 && rol.isPermitido() == true) {
+                status = true;
+                break;
+            } else if (numero == 4 && rol.getIdOperacion() == numero && rol.isPermitido() == true) {
                 aplicacion.listar_contacto();
-            } else if (rol.getIdOperacion() == 5 && rol.isPermitido() == true) {
+                status = true;
+                break;
+            } else if (numero == 5 && rol.getIdOperacion() == numero && rol.isPermitido() == true) {
                 aplicacion.agregar_usuario();
-            }
+                status = true;
+                break;
+            }  
         }
+        if(status == false){
+            System.err.println("No posee permisos suficientes para realizar esta operación");
+        }
+        
     }
     
     public static void main(String args[]){
       
         String entradaTecladousuario = "";
         String entradaTecladorol = "";
+        String numeroOperacion = "";
         
          System.out.println("Nombre del Usuario:");            
          Scanner entradaScanner = new Scanner(System.in);
@@ -84,8 +100,16 @@ public class Principal
          
          System.out.println("-----------------------------");
          usuarios = new Usuarios(entradaTecladousuario,retornoderol(entradaTecladorol));
-         System.out.println("Nombre de usuario: " + usuarios.getNombre() + "  Rol:  " + usuarios.getRol().getNombre());
-            permisosOrtogados(usuarios);
+//         System.out.println("Nombre de usuario: " + usuarios.getNombre() + "  Rol:  " + usuarios.getRol().getNombre()); 
+         System.out.println("Pulse el numero de la operación a relizar");
+         System.out.println("Nª Operación:1 Operación a realizar:Agregar Contacto");
+         System.out.println("Nª Operación:2 Operación a realizar:Modificar Contacto");
+         System.out.println("Nª Operación:3 Operación a realizar:Eliminar Contacto");
+         System.out.println("Nª Operación:4 Operación a realizar:Listar Contacto");
+         System.out.println("Nª Operación:5 Operación a realizar:Agregar Usuario");
+         Scanner entradaScanner3 = new Scanner(System.in); 
+         numeroOperacion = entradaScanner2.nextLine();
+         permisosOrtogados(usuarios, Integer.parseInt(numeroOperacion)); 
          
       
         
@@ -94,3 +118,5 @@ public class Principal
       }*/
 }
 }
+
+
