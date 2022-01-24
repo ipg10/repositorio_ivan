@@ -60,7 +60,7 @@ public class Principal
     }
 
     /**
-     * Este metodo no reglesa nada
+     * Este metodo no regresa nada
      * @param usuarios
      * @param numero
      * @param index 
